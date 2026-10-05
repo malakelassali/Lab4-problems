@@ -35,5 +35,34 @@ public class IntegerList
         list= newArray;
     }
 
+    public void addElement(int newVal) {
+        int k= 0;
+        while (k < list.length && (list[k] != 0)) k++;
+        if (k == list.length) {
+            increaseSize();
+        }
+        list[k] = newVal;
+    }
+
+    public void removeFirst(int newVal) {
+        for (int i = 0; i < list.length; i++) {
+            if (list[i] == newVal) {
+                for (int j = i; j < list.length - 1; j++) {
+                    list[j] = list[j + 1];
+                }
+                list[list.length - 1] = 0;
+            }
+        }
+    }
+    public void removeAll(int newVal) {
+        int k= 0;
+        for (int i=0; i<list.length; i++) {
+            if (list[i] != newVal) {
+                list[k++]= list[i];
+            }
+        }
+        while (k < list.length) list[k++]=0;
+    }
+
 
 }
