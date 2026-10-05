@@ -8,10 +8,18 @@ public class Sales
         int[] sales = new int[SALESPEOPLE];
         int sum;
         Scanner scan = new Scanner(System.in);
+        int maxi= 0;
+        int mini= 0;
         for (int i=0; i<sales.length; i++)
         {
             System.out.print("Enter sales for salesperson " + i + ": ");
             sales[i] = scan.nextInt();
+            if (sales[i]>sales[maxi]) {
+                maxi= i;
+            }
+            if (sales[i]<sales[mini]) {
+                mini= i;
+            }
         }
         System.out.println("\nSalesperson Sales");
         System.out.println("--------------------");
@@ -22,5 +30,9 @@ public class Sales
             sum += sales[i];
         }
         System.out.println("\nTotal sales: " + sum);
+        System.out.println("\nAverage sales: " + sum*1.0/SALESPEOPLE);
+        System.out.println("\nSalesperson " + maxi + " had the highest sale with $" + sales[maxi]);
+        System.out.println("\nSalesperson " + mini + " had the lowest sale with $" + sales[mini]);
+
     }
 }
