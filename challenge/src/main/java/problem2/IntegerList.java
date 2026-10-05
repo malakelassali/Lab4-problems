@@ -26,4 +26,14 @@ public class IntegerList
         for (int i=0; i<list.length; i++)
             System.out.println(i + ":\t" + list[i]);
     }
+
+    public void increaseSize() {
+        int[] newArray= new int[list.length * 2];
+        for (int i=0; i<list.length; i++) {
+            newArray[i] = list[i];
+        }
+        list= newArray;
+    }
+
+
 }
