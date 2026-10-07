@@ -53,6 +53,48 @@ public class Major {
         return studentCount == 50;
     }
 
+    public Student findStudentByCNE(String cne) {
+        for (int i = 0; i < studentCount; i++) {
+            if (students[i].getCne().equals(cne)) {
+                return students[i];
+            }
+        }
+        return null;
+    }
+
+    public boolean removeStudent(String cne) {
+        Student student = findStudentByCNE(cne);
+
+        if (student == null) {
+            return false;
+        }
+        for (int i=0; i<studentCount; i++) {
+            if (students[i] == student) {
+                for (int j=i; j<studentCount-1; j++) {
+                    students[j] = students[j+1];
+                }
+                students[studentCount - 1]= null;
+                studentCount--;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public double getOccupancyRate() {
+        return ((double) studentCount / 50) * 100;
+    }
+
+    public String getStudentListAsString() {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i=0; i<studentCount; i++) {
+            sb.append(i+1).append(". ").append(students[i].getCne()).append(" ").append(students[i].getFullNameFormatted()).append("\n");
+        }
+
+        return sb.toString();
+    }
+
     public String toString() {
         return "Major{" +
                 "id=" + id +

@@ -1,5 +1,7 @@
 package student;
 
+import java.util.Locale;
+
 public class Student extends Person {
     private String cne;
     private Major major;
@@ -52,6 +54,12 @@ public class Student extends Person {
                 ", major=" + (major!= null ? major.getName() : "No major") +
                 '}';
 
+    }
+
+    public String getFullNameFormatted() {
+        StringBuilder fullName= new StringBuilder(secondName.toUpperCase());
+        fullName.append(", ").append(firstName);
+        return fullName.toString();
     }
 
 }
