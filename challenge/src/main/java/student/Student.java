@@ -8,13 +8,19 @@ public class Student extends Person {
     public Student(String nom, String prenom, String telephone, String email, String cne, Major major) {
         super(nom, prenom, telephone, email);
         this.cne = cne;
-        this.major = major;
+        if (!major.limitReached()) {
+            this.major = major;
+            major.addStudent(this);
+        }
     }
 
     public Student(String nom, String prenom, String telephone, String email, String cne) {
         super(nom, prenom, telephone, email);
         this.cne = cne;
-        this.major = null;
+        if (!Major.COMPUTER_SCIENCE.limitReached()) {
+            this.major= Major.COMPUTER_SCIENCE;
+            Major.COMPUTER_SCIENCE.addStudent(this);
+        }
     }
 
     // Getters

@@ -3,80 +3,50 @@ package student;
 public class Test {
     public static void main(String[] args) {
 
-        Person p1 = new Person("Ali", "Amrani", "0612345678", "ali@gmail.com");
+        // a. Create a couple of majors
+        Major computerScience = Major.COMPUTER_SCIENCE;
+        Major business = new Major("24", "Business");
+        Major biology = new Major("25", "Biology");
 
-        System.out.println("=== Person test ===");
-        System.out.println(p1);
-
-        System.out.println("First name: " + p1.getFirstName());
-        System.out.println("Email: " + p1.getEmail());
-
-        p1.setPhone("0699999999");
-        System.out.println("New phone: " + p1.getPhone());
-
-
-
-        Major cs = new Major("CS", "Computer Science");
-
-        System.out.println("\n=== Major test ===");
-        System.out.println("Major ID: " + cs.getId());
-        System.out.println("Major code: " + cs.getCode());
-        System.out.println("Major name: " + cs.getName());
-
-
+        // b. Create students associated with these majors
 
         Student s1 = new Student(
-                "Malak",
-                "Elassali",
+                "SAFI",
+                "Amal",
                 "0611111111",
-                "malak@gmail.com",
-                "CNE001",
-                cs
+                "amal@gmail.com",
+                "22885676"
         );
 
         Student s2 = new Student(
-                "Sara",
-                "Bennani",
+                "ALAMI",
+                "Samir",
                 "0622222222",
-                "sara@gmail.com",
-                "CNE002",
-                cs
+                "samir@gmail.com",
+                "23585976",
+                computerScience
         );
 
         Student s3 = new Student(
-                "Yassine",
-                "Alaoui",
+                "BENNANI",
+                "Sara",
                 "0633333333",
-                "yassine@gmail.com",
-                "CNE003"
+                "sara@gmail.com",
+                "24987456",
+                business
         );
 
+        Student s4 = new Student(
+                "TAZI",
+                "Youssef",
+                "0644444444",
+                "youssef@gmail.com",
+                "24123456",
+                biology
+        );
 
-        System.out.println("\n=== Student test ===");
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
-
-
-
-        System.out.println("\nCNE of s1: " + s1.getCne());
-        System.out.println("Major of s1: " + s1.getMajor().getName());
-
-
-        s3.setMajor(cs);
-        s3.setCne("CNE999");
-
-        System.out.println("\nAfter modification:");
-        System.out.println(s3);
-
-        cs.addStudent(s1);
-        cs.addStudent(s2);
-        cs.addStudent(s3);
-
-        System.out.println("\nNumber of students: " + cs.getStudentCount());
-
-        System.out.println("\n=== Students in Computer Science ===");
-        cs.displayStudents();
+        // c. Display Computer Science students
+        System.out.println("The list of students in the computer science major is:");
+        computerScience.displayStudents();
     }
 }
-

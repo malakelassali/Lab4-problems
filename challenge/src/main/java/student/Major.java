@@ -9,19 +9,21 @@ public class Major {
     private String name;
     private Student[] students;
     private int studentCount;
+    public static final Major COMPUTER_SCIENCE= new Major("23", "Computer Science");
 
     public Major(String code, String name) {
         this.id = nextId++;
         this.code = code;
         this.name = name;
-        this.students = new Student[10];
+        this.students = new Student[50];
         this.studentCount = 0;
     }
 
     // Method to add a student
     public void addStudent(Student s) {
-        if (studentCount == students.length) {
-            students= Arrays.copyOf(students, studentCount * 2);
+        if (studentCount == 50) {
+            System.out.println(this.name + " major has reached maximal capacity of students.");
+            return;
         }
         students[studentCount++]= s;
     }
@@ -47,6 +49,10 @@ public class Major {
         return studentCount;
     }
 
+    public boolean limitReached() {
+        return studentCount == 50;
+    }
+
     public String toString() {
         return "Major{" +
                 "id=" + id +
@@ -59,7 +65,12 @@ public class Major {
     // Display all students in the major
     public void displayStudents() {
         for (int i=0; i<studentCount; i++) {
-            System.out.println(students[i]);
+            System.out.println(
+                    (i+1) + ". " +
+                            students[i].getCne() + " " +
+                            students[i].getFirstName() + " " +
+                            students[i].getSecondName()
+            );
         }
     }
 }
