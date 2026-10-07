@@ -47,11 +47,19 @@ public class Major {
         return studentCount;
     }
 
+    public String toString() {
+        return "Major{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", studentCount=" + studentCount +
+                '}';
+    }
 
     // Display all students in the major
     public void displayStudents() {
-        for (Student student : students) {
-            System.out.println(student.toString());
+        for (int i=0; i<studentCount; i++) {
+            System.out.println(students[i]);
         }
     }
 }

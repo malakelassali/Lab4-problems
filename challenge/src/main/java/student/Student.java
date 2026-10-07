@@ -43,7 +43,7 @@ public class Student extends Person {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", cne=" + cne +
-                ", major=" + major +
+                ", major=" + (major!= null ? major.getName() : "No major") +
                 '}';
 
     }
