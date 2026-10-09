@@ -6,7 +6,7 @@ public class Instructor extends Person {
     private Subject subject;
 
     public Instructor(String lastName, String firstName, String telephone, String email, String employeeNumber, Subject subject) {
-        super(lastName, firstName, telephone, email);
+        super(firstName, lastName, telephone, email);
         this.employeeNumber= employeeNumber;
         this.subject= subject;
     }
@@ -32,14 +32,14 @@ public class Instructor extends Person {
 
     public String displayName() {
         StringBuilder sb = new StringBuilder();
-        if (firstName != null) {
-            sb.append(firstName);
-        }
         if (secondName != null) {
+            sb.append(secondName);
+        }
+        if (firstName != null) {
             if (sb.length()>0) {
                 sb.append(", ");
             }
-            sb.append(secondName);
+            sb.append(firstName);
         }
         return sb.toString();
     }
